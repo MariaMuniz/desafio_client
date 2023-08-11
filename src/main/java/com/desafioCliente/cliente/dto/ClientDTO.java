@@ -4,12 +4,28 @@ import java.time.LocalDate;
 
 import com.desafioCliente.cliente.entities.Client;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
+
 public class ClientDTO {
 	private Long id;
+	 @Size(min= 3, max =80, message= "Nome deve ter entre 3 e 80 caracteres" )
+
+	@NotBlank(message= "Campo requerido")
 	private String name;
+	
+	 @NotBlank(message= "Campo requerido")
+	 @Size(min= 11, message = "cpf deve ter 11 números")
 	private String cpf;
+	 @Positive(message= "preço deve ser positivo")
 	private Double income;
+	 @Past(message= "a data deve estar no passado")
 	private LocalDate birthDate;
+	 @NotNull
+	// @NotBlank(message= "Campo requerido")
 	private Integer children;
 	
 	
